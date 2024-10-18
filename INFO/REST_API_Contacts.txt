@@ -1,0 +1,123 @@
+REST API Contacts
+---------------------
+
+Postman для тесту REST API
+https://www.postman.com/
+
+Для здійснення кожного запиту, натискаємо Send .
+Якщо REST-запит має тіло, необхідно налаштування
+в Postman: Body > raw > JSON.
+
+
+(1) Створення даних
+
+POST
+http://localhost:8080/JAX-RS-Jersey-Tomcat-MySQL-Contacts_1-1.0-SNAPSHOT/api/v1/contacts
+
+Виконуємо окремі запити
+
+{
+    "firstName": "John",
+    "lastName": "Green",
+    "phone": "380-679460"
+}
+
+{
+    "firstName": "Bob",
+    "lastName": "Bright",
+    "phone": "380-679459"
+}
+
+{
+    "firstName": "Alice",
+    "lastName": "Terra",
+    "phone": "380-679458"
+}
+
+{
+    "firstName": "Tom",
+    "lastName": "Bright",
+    "phone": "380-679457"
+}
+
+{
+    "firstName": "Lucy",
+    "lastName": "Moon",
+    "phone": "380-679455"
+}
+
+{
+    "firstName": "David",
+    "lastName": "Terra",
+    "phone": "380-679456"
+}
+
+{
+    "firstName": "Mary",
+    "lastName": "Waters",
+    "phone": "380-679454"
+}
+
+{
+    "firstName": "Alice",
+    "lastName": "Bright",
+    "phone": "380-679453"
+}
+
+Перевіремо через MySQL Workbench.
+
+
+(2) Отримання всіх даних
+
+GET
+http://localhost:8080/Your-Project-Name-1.0-SNAPSHOT/api/v1/users
+
+
+(3) Отримання даних за id
+
+GET
+http://localhost:8080/Your-Project-Name-1.0-SNAPSHOT/api/v1/users/4
+
+Також, за неіснуючим id
+
+GET
+http://localhost:8080/Your-Project-Name-1.0-SNAPSHOT/api/v1/users/17
+
+
+(4) Отримання даних за Query Params тут
+src/main/java/org/example/app/controller/UserController.java
+
+
+(5) Оновлення даних за id
+
+PUT
+http://localhost:8080/Your-Project-Name-1.0-SNAPSHOT/api/v1/users/2
+
+{
+    "firstName": "Bob",
+    "lastName": "Bright",
+    "phone": "380-679452"
+}
+
+PUT
+http://localhost:8080/Your-Project-Name-1.0-SNAPSHOT/api/v1/users/3
+
+{
+    "firstName": "Alice",
+    "lastName": "Moon",
+    "phone": "380-679451"
+}
+
+Перевіремо через MySQL Workbench та REST-запит за відповідним id.
+Також, спробуємо оновити за неіснуючим id.
+
+
+(6) Видалення даних за id
+
+DELETE
+http://localhost:8080/Your-Project-Name-1.0-SNAPSHOT/api/v1/users/5
+
+Перевіремо через MySQL Workbench, REST-запити отримання всіх даних
+та за відповідним id.
+Також, спробуємо повторно видалити та тим самим id, та за неіснуючим id.
+
